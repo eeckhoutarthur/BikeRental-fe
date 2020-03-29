@@ -1,27 +1,12 @@
 # ProjectBikeRentalFE
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+De basisconfiguratie werd uitgevoerd. Ik heb ook al components klaargezet om een fiets toe te voegen, maar dit is nog niet
+geïmplementeerd.
 
-## Development server
+In de Angular applicatie is het mogelijk om aan de hand van een dummy implementatie de fietsen op het scherm te tonen.
+Wanneer u de applicatie opstart zult u zien dat het merk, type en de groupset van de fiets nog wordt weergegeven door een getal.
+Na lang zoeken heb ik nog steeds niet gevonden om dit getal om te zetten naar de juiste enum waarde.
+Daarom heb ik tijdelijk klassen aangemaakt in het project om dit op een andere manier te proberen. Tot nu toe werkt deze manier
+ook nog niet.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Ik dien de orders en de customers nog te implementeren in dit project. 
