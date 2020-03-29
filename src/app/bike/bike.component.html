@@ -1,11 +1,12 @@
-//Dit is gewoon om angular material uit te testen
-  <mat-card-title><p>bike works!</p></mat-card-title>
-
 
 <mat-card>
-  <mat-card-content>
-    <p>Hier komen de gegevens</p>
-  </mat-card-content>
+  <p>{{bike.name}}</p>
+  <p>{{bike.bikeBrand}}</p>
+  <p>{{bike.bikeType}}</p>
+  <p>{{bike.bikeGroupset}}</p>
+  <p>{{bike.discBrakes ? 'Discbrakes' : 'Rimbrakes'}}</p>
+  <p>${{bike.price}}</p>
 </mat-card>
+
 
 

@@ -1,23 +1,14 @@
-import { DecimalPipe } from '@angular/common';
-import { Brand } from './brand';
-import { Groupset } from './groupset.enum';
-import { Type } from './type.enum';
+// import { DecimalPipe } from '@angular/common';
+import { Brand } from './brandE';
+import { Groupset } from './groupsetE.enum';
+import { Type } from './typeE.enum';
+import {BikeJson} from './bikeJson'
 
-interface BikeJson{
-    id: number
-    name: string
-    price: DecimalPipe
-    discBrakes: boolean
-    bikeBrand:number
-    bikeGroupset: number
-    bikeType: number
-}
-
-export class Bike{
+export class Bike implements BikeJson{
     private _id: number;
     constructor(
         private _name: string,
-        private _price: DecimalPipe,
+        private _price: number,
         private _discBrakes: boolean,
         private _bikeBrand: Brand,
         private _bikeGroupset: Groupset,
@@ -31,13 +22,19 @@ export class Bike{
             return b;
     }
 
+    // static fromJSON2(bikeData: Bike) : Bike{
+    //     const b = new Bike(bikeData.name,bikeData.price,bikeData.discBrakes,bikeData.bikeBrand,
+    //         bikeData.bikeGroupset,bikeData.bikeType);
+    //     return b;
+    // }
+
     get id(): number{
         return this._id;
     }
     get name(): string{
         return this._name;
     }
-    get price(): DecimalPipe{
+    get price(): number{
         return this._price;
     }
     get discBrakes(): boolean{
