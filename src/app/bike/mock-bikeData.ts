@@ -1,7 +1,4 @@
 import {Bike} from './bike.model'
-import { Brand } from './brandE';
-import { Groupset } from './groupsetE.enum';
-import { Type } from './typeE.enum';
 
 const JsonBikes = [
     {
@@ -9,18 +6,18 @@ const JsonBikes = [
         name: "Tarmac",
         price: 5000,
         discBrakes: true,
-        bikeBrand: 1,
-        bikeGroupset: 1,
-        bikeType: 1
+        bikeBrand: "Sepcialized",
+        bikeGroupset: "Shimano",
+        bikeType: "Race Bike"
     },
     {
         id: 2,
         name: "Madone SLR 9 Disc eTap",
         price: 11000,
         discBrakes: true,
-        bikeBrand: 2,
-        bikeGroupset: 2,
-        bikeType: 1
+        bikeBrand: "Trek",
+        bikeGroupset: "Sram",
+        bikeType: "Race Bike"
     }
 ];
 

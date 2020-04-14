@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { BikeComponent } from './bike.component';
 import {MaterialModule} from '../material/material.module';
 import {BikeListComponent} from './bike-list/bike-list.component'
-import { Brand } from './brand';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

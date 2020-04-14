@@ -1,7 +1,3 @@
-// import { DecimalPipe } from '@angular/common';
-import { Brand } from './brandE';
-import { Groupset } from './groupsetE.enum';
-import { Type } from './typeE.enum';
 import {BikeJson} from './bikeJson'
 
 export class Bike implements BikeJson{
@@ -10,9 +6,9 @@ export class Bike implements BikeJson{
         private _name: string,
         private _price: number,
         private _discBrakes: boolean,
-        private _bikeBrand: Brand,
-        private _bikeGroupset: Groupset,
-        private _bikeType: Type
+        private _bikeBrand: string,
+        private _bikeGroupset: string,
+        private _bikeType: string
     ) {}
 
     static fromJSON(json: BikeJson): Bike{
@@ -40,13 +36,13 @@ export class Bike implements BikeJson{
     get discBrakes(): boolean{
         return this._discBrakes;
     }
-    get bikeBrand(): Brand{
+    get bikeBrand(): string{
         return this._bikeBrand;
     }
-    get bikeGroupset(): Groupset{
+    get bikeGroupset(): string{
         return this._bikeGroupset;
     }
-    get bikeType(): Type{
+    get bikeType(): string{
         return this._bikeType;
     }
 }
