@@ -13,7 +13,7 @@ export class Bike implements BikeJson{
 
     static fromJSON(json: BikeJson): Bike{
         const b = new Bike(json.name,json.price,json.discBrakes,json.bikeBrand,
-            json.bikeGroupset,json.bikeType);
+            json.bikeGroupset,json.bikeType.replace("_"," "));
             b._id = json.id;
             return b;
     }
