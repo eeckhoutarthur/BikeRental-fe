@@ -5,20 +5,24 @@ import {MaterialModule} from '../material/material.module';
 import {BikeListComponent} from './bike-list/bike-list.component'
 import { HttpClientModule } from '@angular/common/http';
 import { BikeFilterPipe } from './bikeFilter.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
+import {AddBikeComponent} from './add-bike/add-bike.component'
 
 @NgModule({
    imports: [
       CommonModule,
       MaterialModule,
-      HttpClientModule
+      HttpClientModule,
+      ReactiveFormsModule,
    ],
    declarations: [
       BikeComponent,
       BikeListComponent,
-      BikeFilterPipe
+      BikeFilterPipe,
+      AddBikeComponent,
    ],
    exports: [
-      BikeListComponent
+      BikeListComponent,AddBikeComponent,
    ]
 })
 export class BikeModule { }

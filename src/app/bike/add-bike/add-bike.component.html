@@ -1,3 +1,63 @@
-<p>
-  add-bike works!
-</p>
+  <mat-card-title>Add a bike</mat-card-title>
+    <form [formGroup]="bikeFormGroup" (ngSubmit)='onSubmit()'>
+      <div>
+      <mat-form-field>
+        <input
+          matInput
+          aria-label="name"
+          placeholder="name"
+          type="text"
+          formControlName="name"
+        />
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Brands</mat-label>
+        <mat-select 
+          placeholder="Brand"
+          aria-label="available brands"
+          formControlName="bikeBrand"
+        >
+          <mat-option *ngFor= "let brand of brands" [value]="brand">
+            {{brand}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+      <!-- <mat-form-field>
+        <mat-label>Types</mat-label>
+        <mat-select [(value)]="selectedT">
+          <mat-option value="Road_Bike">Road Bike</mat-option>
+          <mat-option value="E_Bike">E-Bike</mat-option>
+          <mat-option value="Mountain_Bike">Mountain Bike</mat-option>
+          <mat-option value="Urban_Bike">Urban Bike</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Groupset</mat-label>
+        <mat-select [(value)]="selectedG">
+          <mat-option value="Shimano">Shimano</mat-option>
+          <mat-option value="Sram">Sram</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <label>Discbrakes: </label>
+        <mat-radio-group [formControl]="floatLabelControl">
+          <mat-radio-button value="true">Yes</mat-radio-button>
+          <mat-radio-button value="false">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          aria-label="price"
+          placeholder="price"
+          type="text"
+          formControlName="price"
+        />
+      </mat-form-field> --> 
+      <button type='submit' mat-raised-button>  
+        Add bike
+      </button>
+    </form>

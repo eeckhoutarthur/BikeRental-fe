@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BikeDataService} from '../bike-data.service'
 import { Observable } from 'rxjs';
-import {Bike} from '../bike.model'
-
+import {Bike} from '../bike.model';
 
 @Component({
   selector: 'app-bike-list',
