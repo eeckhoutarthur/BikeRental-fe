@@ -1,9 +1,12 @@
+  <mat-card>
   <mat-card-title>Add a bike</mat-card-title>
-    <form [formGroup]="bikeFormGroup" (ngSubmit)='onSubmit()'>
+  <mat-card-content>
+    <form [formGroup]="bikeFormGroup" (ngSubmit)="onSubmit()">
       <div>
       <mat-form-field>
+        <mat-label>Test</mat-label>
         <input
-          matInput
+          matInput 
           aria-label="name"
           placeholder="name"
           type="text"
@@ -24,40 +27,52 @@
         </mat-select>
       </mat-form-field>
     </div>
-      <!-- <mat-form-field>
+      <mat-form-field>
         <mat-label>Types</mat-label>
-        <mat-select [(value)]="selectedT">
-          <mat-option value="Road_Bike">Road Bike</mat-option>
-          <mat-option value="E_Bike">E-Bike</mat-option>
-          <mat-option value="Mountain_Bike">Mountain Bike</mat-option>
-          <mat-option value="Urban_Bike">Urban Bike</mat-option>
+        <mat-select           
+        placeholder="Type"
+        aria-label="available types"
+        formControlName="type">
+          <mat-option value="Road Bike">Road Bike</mat-option>
+          <mat-option value="E-Bike">E-Bike</mat-option>
+          <mat-option value="Mountain Bike">Mountain Bike</mat-option>
+          <mat-option value="Urban Bike">Urban Bike</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Groupset</mat-label>
-        <mat-select [(value)]="selectedG">
+        <mat-select           
+        placeholder="Groupset"
+        aria-label="available groupsets"
+        formControlName="groupset">
           <mat-option value="Shimano">Shimano</mat-option>
           <mat-option value="Sram">Sram</mat-option>
         </mat-select>
       </mat-form-field>
       <div>
         <label>Discbrakes: </label>
-        <mat-radio-group [formControl]="floatLabelControl">
+        <mat-radio-group
+        placeholder="Discbrakes"
+        aria-label="Do you want discbrakes"
+        formControlName="discBrakes">
           <mat-radio-button value="true">Yes</mat-radio-button>
           <mat-radio-button value="false">No</mat-radio-button>
         </mat-radio-group>
       </div>
-      </mat-form-field>
       <mat-form-field>
         <input
           matInput
           aria-label="price"
           placeholder="price"
-          type="text"
+          type="number"
           formControlName="price"
         />
-      </mat-form-field> --> 
-      <button type='submit' mat-raised-button>  
+      </mat-form-field>
+      <button  mat-raised-button type='submit'>  
         Add bike
       </button>
     </form>
+  </mat-card-content>
+  </mat-card>
+
+ 

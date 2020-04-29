@@ -1,11 +1,11 @@
 
-<div
+<div *ngIf="(bikes$ | async) as bikes;"
   fxLayout="row wrap"
   fxLayout.xs="column"
   fxLayoutGap="0.5%"
   fxLayoutAlign="start"
 >
-
+<app-add-bike (newBike)="addBike($event)"></app-add-bike>
 <section>
   <div style="align-items: center;">
     <button mat-flat-button color="filterknop"(click)="applyFilter(0)">All bikes</button>
@@ -15,13 +15,19 @@
     <button  mat-flat-button color="filterknop" (click)="applyFilter(4)">Urban Bike</button>
   </div> 
 </section>
-
-  <div 
+  <div
     class="bike"
-    *ngFor="let bikeData of (bikes$ | async | bikeFilter: bikeType )"
+    *ngFor="let bikeData of (bikes | bikeFilter: bikeType )"
     fxFlex="0 0 calc(25%-0.5%)"
     fxFlex.xs="100%"
   >
     <app-bike [bike]="bikeData"></app-bike>
   </div>
 </div>
+
+<ng-template #loadError>
+  <mat-card class="error" *ngIf="errorMessage;">
+    Could not show the bikes: {{ errorMessage }}. <br/>
+    Please try again later.
+ </mat-card>
+</ng-template>

@@ -1,28 +1,41 @@
-import {BikeJson} from './bikeJson'
+// import {BikeJson} from './bikeJson'
 
-export class Bike implements BikeJson{
+interface BikeJson{
+    id: number
+    name: string
+    bikeBrand:string
+    bikeGroupset: string
+    bikeType: string
+    discBrakes: boolean
+    price: number
+}
+
+export class Bike /*implements BikeJson*/{
     private _id: number;
     constructor(
         private _name: string,
-        private _price: number,
-        private _discBrakes: boolean,
         private _bikeBrand: string,
         private _bikeGroupset: string,
-        private _bikeType: string
+        private _bikeType: string,
+        private _discBrakes: boolean,
+        private _price: number
     ) {}
 
     static fromJSON(json: BikeJson): Bike{
-        const b = new Bike(json.name,json.price,json.discBrakes,json.bikeBrand,
-            json.bikeGroupset,json.bikeType == "E_Bike"? json.bikeType.replace("_","-") : json.bikeType.replace("_"," "));
+        const b = new Bike(json.name,json.bikeBrand,json.bikeGroupset,json.bikeType == "E_Bike"? json.bikeType.replace("_","-") : json.bikeType.replace("_"," "),json.discBrakes,json.price);
             b._id = json.id;
             return b;
     }
-
-    // static fromJSON2(bikeData: Bike) : Bike{
-    //     const b = new Bike(bikeData.name,bikeData.price,bikeData.discBrakes,bikeData.bikeBrand,
-    //         bikeData.bikeGroupset,bikeData.bikeType);
-    //     return b;
-    // }
+    toJSON(): BikeJson{
+        return <BikeJson>{
+            name: this.name,
+            price: this.price,
+            discBrakes: this.discBrakes,
+            bikeBrand: this.bikeBrand,
+            bikeGroupset: this.bikeGroupset,
+            bikeType: this.bikeType == "E-Bike"? this.bikeType.replace("-","_") : this.bikeType.replace(" ","_"),
+        }
+    }
 
     get id(): number{
         return this._id;

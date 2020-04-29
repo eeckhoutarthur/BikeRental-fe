@@ -1,35 +1,61 @@
 import { Injectable } from '@angular/core';
-import {bikeData} from './mock-bikeData'
 import{Bike} from './bike.model'
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { tap } from 'rxjs/operators';
+import { HttpClient,HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
+import { map, catchError,tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BikeDataService {
-  // private _bikes = bikeData;
+  private _bikes : Bike[];
+  private _bikes$ = new BehaviorSubject<Bike[]>([]);
 
-constructor(private http: HttpClient) { }
+constructor(private http: HttpClient) { 
+  this.bikes$.subscribe((bikes:Bike[]) => {
+    this._bikes = bikes;
+    this._bikes$.next(this._bikes);
+  });
+}
+
+get allBikes$(): Observable<Bike[]>{
+  return this._bikes$;
+}
 
 get bikes$(): Observable<Bike[]>{
-  return this.http.get(`api/Bikes`).pipe(
-    tap(console.log),
+  return this.http.get(`${environment.Url}/Bikes`).pipe(
+    catchError(this.handleError),
     map(
-      (list: any[]): Bike[] => list.map(Bike.fromJSON)              
+      (list: any[]): Bike[] => list.map(Bike.fromJSON)             
     )
   );
 }
 
-// get bikes(): Bike[]{
-//   return this._bikes;
-// }
+addBike(bike: Bike){
+  return this.http.post(`${environment.Url}/Bikes`,bike.toJSON())
+  .pipe(tap(console.log),catchError(this.handleError),map(Bike.fromJSON))
+  .pipe(
+    catchError(err => {
+      this._bikes$.error(err);
+      return throwError(err);
+    })
+  )
+  .subscribe((rec:Bike) => {
+    this._bikes = [...this._bikes, rec];
+    this._bikes$.next(this._bikes);
+    });
+  }
 
-// addBike(bike: Bike){
-//   this._bikes.push(bike);
-// }
-
+  handleError(error:any) : Observable<never>{
+    let errorMessage: string;
+    if (error instanceof HttpErrorResponse) {
+      errorMessage = `'${error.status} ${error.statusText}' when accessing '${error.url}'`;
+      console.error(error);
+    } else {
+      errorMessage = `an unknown error occurred ${error}`;
+    }
+    return throwError(errorMessage);
+  }
 }

@@ -22,7 +22,7 @@ import {AddBikeComponent} from './add-bike/add-bike.component'
       AddBikeComponent,
    ],
    exports: [
-      BikeListComponent,AddBikeComponent,
+      BikeListComponent
    ]
 })
 export class BikeModule { }
