@@ -32,7 +32,4 @@ export class BikeListComponent implements OnInit{
   get bikes$():Observable<Bike[]>{
     return this._fetchBikes$;
   }
-  addBike(bike){
-    this._bikeDataService.addBike(bike);
-  }
 }
