@@ -10,6 +10,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { BikeListComponent } from './bike/bike-list/bike-list.component';
 import { AddBikeComponent } from './bike/add-bike/add-bike.component';
 import { PageNotFoundComponentComponent } from './PageNotFoundComponent/PageNotFoundComponent.component';
+import { NavComponent } from './nav/nav.component';
 
 const appRoutes : Routes = [
    {path: 'bike/list', component:BikeListComponent},
@@ -21,7 +22,8 @@ const appRoutes : Routes = [
 @NgModule({
    declarations: [
       AppComponent,
-      PageNotFoundComponentComponent
+      PageNotFoundComponentComponent,
+      NavComponent
    ],
    imports: [
       BrowserModule,

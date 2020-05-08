@@ -1,9 +1,15 @@
-<div style="text-align: center;">
-  <h1>
-    Welcome to {{title}}
-  </h1>
-  <h2>Rent a bike!</h2>
-</div>
-<div>
-    <router-outlet></router-outlet>
-</div>
+ <!-- <mat-toolbar>
+    <mat-toolbar-row> 
+        <img src="/assets/images/logo.png" [routerLink]="['bike/list']">
+        <span class="menu-spacer"></span>
+        <div>
+          <a mat-button [routerLink]="['bike/add']"> Voeg een fiets toe </a>
+        </div>
+    </mat-toolbar-row>
+  </mat-toolbar> -->
+  <app-nav>
+      <router-outlet></router-outlet>
+  </app-nav>
+
+
+
