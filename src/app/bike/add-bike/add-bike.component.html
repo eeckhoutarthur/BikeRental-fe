@@ -1,5 +1,5 @@
-  <mat-card>
-  <mat-card-title>Add a bike</mat-card-title>
+  <div class="text-center"><mat-card-title>Add a bike</mat-card-title></div>
+  <div class="main-div">
   <mat-card-content>
     <form [formGroup]="bikeFormGroup" (ngSubmit)="onSubmit()">
       <div>
@@ -39,6 +39,7 @@
           <mat-option value="Urban Bike">Urban Bike</mat-option>
         </mat-select>
       </mat-form-field>
+      <br>
       <mat-form-field>
         <mat-label>Groupset</mat-label>
         <mat-select           
@@ -73,6 +74,4 @@
       </button>
     </form>
   </mat-card-content>
-  </mat-card>
-
- 
+</div>

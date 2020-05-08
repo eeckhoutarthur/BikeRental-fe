@@ -1,29 +1,24 @@
 
-<div *ngIf="(bikes$ | async) as bikes;"
-  fxLayout="row wrap"
-  fxLayout.xs="column"
-  fxLayoutGap="0.5%"
-  fxLayoutAlign="start"
->
-<section>
-  <div style="align-items: center;">
-    <button mat-flat-button color="filterknop"(click)="applyFilter(0)">All bikes</button>
+<div class="d-flex justify-content-center">
+  <div style="align-items: center; margin: 2em;">
+    <button mat-flat-button color="filterknop"  (click)="applyFilter(0)">All bikes</button>
     <button  mat-flat-button color="filterknop" (click)="applyFilter(1)">Road Bike</button>
     <button  mat-flat-button color="filterknop" (click)="applyFilter(2)">Mountain Bike</button>
     <button  mat-flat-button color="filterknop" (click)="applyFilter(3)">E-Bike</button>
     <button  mat-flat-button color="filterknop" (click)="applyFilter(4)">Urban Bike</button>
   </div> 
-</section>
-  <div
-    class="bike"
-    *ngFor="let bikeData of (bikes | bikeFilter: bikeType )"
-    fxFlex="0 0 calc(25%-0.5%)"
-    fxFlex.xs="100%"
-  >
-    <app-bike [bike]="bikeData"></app-bike>
-  </div>
 </div>
 
+<div class="container">
+  <div class="row row-cols-3" *ngIf="(bikes$ | async) as bikes;">
+    <div
+      class="col"
+      *ngFor="let bikeData of (bikes | bikeFilter: bikeType )"
+    >
+      <app-bike [bike]="bikeData"></app-bike>
+    </div>
+  </div>
+</div>
 <ng-template #loadError>
   <mat-card class="error" *ngIf="errorMessage;">
     Could not show the bikes: {{ errorMessage }}. <br/>
