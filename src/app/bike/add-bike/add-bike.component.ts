@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Bike } from '../bike.model';
 import { BikeDataService } from '../bike-data.service';
 
@@ -18,12 +18,12 @@ export class AddBikeComponent implements OnInit {
   constructor(private _bikeDataService : BikeDataService) {}
   ngOnInit(): void {
     this.bikeFormGroup= new FormGroup({
-      name: new FormControl(''),
-      bikeBrand: new FormControl(''),
-      type: new FormControl(''),
-      groupset: new FormControl(''),
-      discBrakes: new FormControl(''),
-      price: new FormControl('')
+      name: new FormControl('', [Validators.required]),
+      bikeBrand: new FormControl('', [Validators.required]),
+      type: new FormControl('', [Validators.required]),
+      groupset: new FormControl('', [Validators.required]),
+      discBrakes: new FormControl('', [Validators.required]),
+      price: new FormControl('', [Validators.required])
     })
   }
 

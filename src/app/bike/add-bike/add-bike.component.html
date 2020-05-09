@@ -11,6 +11,7 @@
           placeholder="name"
           type="text"
           formControlName="name"
+          required
         />
       </mat-form-field>
       <br>
@@ -20,6 +21,7 @@
           placeholder="Brand"
           aria-label="available brands"
           formControlName="bikeBrand"
+          required
         >
           <mat-option *ngFor= "let brand of brands" [value]="brand">
             {{brand}}
@@ -32,7 +34,8 @@
         <mat-select           
         placeholder="Type"
         aria-label="available types"
-        formControlName="type">
+        formControlName="type"
+        required>
           <mat-option value="Road Bike">Road Bike</mat-option>
           <mat-option value="E-Bike">E-Bike</mat-option>
           <mat-option value="Mountain Bike">Mountain Bike</mat-option>
@@ -45,7 +48,8 @@
         <mat-select           
         placeholder="Groupset"
         aria-label="available groupsets"
-        formControlName="groupset">
+        formControlName="groupset"
+        required>
           <mat-option value="Shimano">Shimano</mat-option>
           <mat-option value="Sram">Sram</mat-option>
         </mat-select>
@@ -67,9 +71,10 @@
           placeholder="price"
           type="number"
           formControlName="price"
+          required
         />
       </mat-form-field>
-      <button  mat-raised-button type='submit'>  
+      <button  mat-raised-button type='submit' [disabled]="!bikeFormGroup.valid">  
         Add bike
       </button>
     </form>
