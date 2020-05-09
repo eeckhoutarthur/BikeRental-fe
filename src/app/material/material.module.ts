@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialComponent } from './material.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -19,7 +19,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 @NgModule({
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     FlexLayoutModule,
     MatListModule,
     MatCardModule,
@@ -31,7 +31,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
   ],
   declarations: [MaterialComponent],
   exports: [
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     FlexLayoutModule,
     MatListModule,
     MatCardModule,
