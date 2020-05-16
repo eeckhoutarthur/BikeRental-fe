@@ -30,5 +30,7 @@ export class AddBikeComponent implements OnInit {
   onSubmit(){
     this._bikeDataService.addBike(new Bike(this.bikeFormGroup.get("name").value,this.bikeFormGroup.get("bikeBrand").value,this.bikeFormGroup.get("groupset").value,this.bikeFormGroup.get("type").value,
     this.bikeFormGroup.get("discBrakes").value == "true",this.bikeFormGroup.get("price").value)); 
+
+    this.bikeFormGroup.reset();
   }
 }
