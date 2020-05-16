@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponentComponent } from './PageNotFoundComponent/PageNotFoundComponent.component';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
    declarations: [
@@ -24,6 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
       MaterialModule,
       ReactiveFormsModule,
       AppRoutingModule,
+      UserModule,
    ],
    providers: [],
    bootstrap: [

@@ -1,0 +1,36 @@
+<div fxLayout="row" fxLayoutAlign="center center " class="login-main">
+  <mat-card>
+    <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout="column">
+        <!-- <span fxLayout="row" fxLayoutGap="2%"></span> -->
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="email"
+              aria-label="email"
+              data-cy="login-email"
+              formControlName="username"/>
+          </mat-form-field>
+          <mat-form-field>
+              <input
+              matInput
+              type="password"
+              placeholder="password"
+              aria-label="password"
+              data-cy="login-passwoord"
+              formControlName="password">
+          </mat-form-field>
+          <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
+              <a [routerLink]="['/register']">register</a>
+              <button mat-raised-button type="submit" color="primary" data-cy="login-button">Login</button>
+          </mat-card-actions>
+      </mat-card-content>
+    </form>
+    <mat-card class="error" *ngIf="erroMessage" data-cy="appError">
+        There went something wrong while the list of bikes was loading: {{erroMessage}}
+    </mat-card>
+  </mat-card>
+</div>
