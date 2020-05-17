@@ -8,10 +8,11 @@ import { BikeFilterPipe } from './bikeFilter.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import {AddBikeComponent} from './add-bike/add-bike.component';
 import {RouterModule, Routes} from '@angular/router';
+import { AuthGuard } from '../user/auth.guard';
 
    const bikeRoutes : Routes = [
       {path: 'list', component: BikeListComponent},
-      {path: 'add', component: AddBikeComponent}
+      {path: 'add', canActivate : [AuthGuard],component: AddBikeComponent}
    ];
 
 

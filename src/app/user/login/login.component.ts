@@ -24,7 +24,12 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.autSetvice.login(this.loginFormGroup.value.username,this.loginFormGroup.value.password).subscribe(
       (value) =>{
-        if(value) this.router.navigate(["/bike/list"]);//-> Als de value true is dan zullen de fietsen getoond worden. Dit is een boolean vanwegie de login medthode uit Authentication.Service
+        if(value){
+          if(this.autSetvice.redirectUrl){
+            this.router.navigateByUrl(this.autSetvice.redirectUrl);
+            this.autSetvice.redirectUrl = '';
+          }else this.router.navigate(["/bike/list"]);//-> Als de value true is dan zullen de fietsen getoond worden. Dit is een boolean vanwegie de login medthode uit Authentication.Service
+        } 
         else this.erroMessage = "It was nos possible to login"
       },
       (error: HttpErrorResponse)=> {
