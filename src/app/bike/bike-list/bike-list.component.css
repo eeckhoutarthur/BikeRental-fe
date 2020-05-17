@@ -1,6 +1,7 @@
 
 .mat-flat-button.mat-filterknop{
-    color: #f0fff3;
-    background-color: #42a031;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
     margin-right: 8px;
 }
