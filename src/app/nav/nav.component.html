@@ -2,7 +2,7 @@
   <mat-toolbar-row> 
       <img src="/assets/images/logo.png" [routerLink]="['bike/list']">
       <span class="menu-spacer"></span>
-      <div>
+      <div *ngIf="currentRole$.getValue() == 'admin'">
         <a mat-button [routerLink]="['bike/add']"> Voeg een fiets toe </a>
         <!-- Nog een link om de orders te tonen -->
         <!-- Nog een link om een bike te verwijderen -->

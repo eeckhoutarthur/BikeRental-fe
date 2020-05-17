@@ -19,6 +19,7 @@ function parseJwt(token) {
 export class AuthenticationService {
   private readonly _tokenKey = "currentUser";
   private _user$: BehaviorSubject<string>;
+  private _role$: BehaviorSubject<string>;
   public redirectUrl = '';
 
   constructor(private http: HttpClient) {
@@ -29,8 +30,11 @@ export class AuthenticationService {
         localStorage.removeItem(this._tokenKey);
         parsedToken = null;
       }
+      console.log(`Dit is het token ${parsedToken}`);
     }
     this._user$ = new BehaviorSubject<string>(parsedToken && parsedToken.unique_name);
+    this._role$ = new BehaviorSubject<string>(parsedToken && parsedToken.Rol);
+
   }
 
   set tokenStorage(token) {
@@ -46,6 +50,10 @@ export class AuthenticationService {
     return this._user$;
   }
 
+  get role$() :  BehaviorSubject<string>{
+    return this._role$;
+  }
+
   login(email: string, password: string): Observable<boolean> {
     return this.http
       .post(
@@ -58,6 +66,7 @@ export class AuthenticationService {
           if (token) {
             this.tokenStorage = token;
             this._user$.next(email);
+            this._role$.next(parseJwt(localStorage.getItem(this._tokenKey)).Rol);
             return true;
           } else {
             return false;
@@ -104,6 +113,7 @@ export class AuthenticationService {
     if(this._user$.getValue()){
       localStorage.removeItem(this._tokenKey);
       this.user$.next(null);
+      this._role$.next("");
     }
   }
 

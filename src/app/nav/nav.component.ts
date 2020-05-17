@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../user/Authentication.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  currentUser$ = this. _authenticationService.user$;
+  currentUser$ = this._authenticationService.user$;
+  currentRole$ = this._authenticationService.role$;
 
   constructor(private _authenticationService: AuthenticationService,private _router : Router) { }
 
