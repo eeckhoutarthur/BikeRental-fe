@@ -7,6 +7,20 @@
         <!-- Nog een link om de orders te tonen -->
         <!-- Nog een link om een bike te verwijderen -->
       </div>
+      <span fxFlex></span>
+      <span *ngIf="currentUser$ | async as user; else loginTemplate"> 
+        {{user}}
+        <button  class="btn btn-primary" (click)="logout()" style="float: right; margin-left: 5rem;">
+          logout
+        </button>
+      </span>
+      <ng-template #loginTemplate>
+        <span>
+          <button  class="btn btn-primary"  (click)="login()">
+            login
+          </button>
+        </span>
+      </ng-template>
   </mat-toolbar-row>
 </mat-toolbar>
 <ng-content></ng-content>
