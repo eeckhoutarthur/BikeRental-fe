@@ -10,6 +10,7 @@ import { PageNotFoundComponentComponent } from './PageNotFoundComponent/PageNotF
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserModule } from './user/user.module';
+import { httpInterceptorProviders } from './interceptor/providers';
 
 @NgModule({
    declarations: [
@@ -27,7 +28,7 @@ import { UserModule } from './user/user.module';
       UserModule,
       AppRoutingModule
    ],
-   providers: [],
+   providers: [httpInterceptorProviders],
    bootstrap: [
       AppComponent
    ]
