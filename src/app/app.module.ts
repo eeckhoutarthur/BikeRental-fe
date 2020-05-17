@@ -24,8 +24,8 @@ import { UserModule } from './user/user.module';
       BrowserAnimationsModule,
       MaterialModule,
       ReactiveFormsModule,
-      AppRoutingModule,
       UserModule,
+      AppRoutingModule
    ],
    providers: [],
    bootstrap: [
