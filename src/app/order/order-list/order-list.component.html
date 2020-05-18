@@ -1,0 +1,16 @@
+
+<div class="container">
+  <div class="row row-cols-2" *ngIf="orders$ | async as orders; else loadError">
+    <div
+      class="col"
+      *ngFor="let orderData of orders"
+    >
+      <app-order [order]="orderData"></app-order>
+    </div>
+  </div>
+</div>
+<ng-template #loadError>
+  <mat-card class="error" *ngIf="errorMessage;">
+    There are no orders: {{ errorMessage }}. <br/>
+ </mat-card>
+</ng-template>

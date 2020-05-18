@@ -1,0 +1,8 @@
+<mat-card class="m-4 text-center">
+  <p> <b>Start date:</b> {{order.startDate.toString().split('T')[0]}}</p>
+  <p><b>End date:</b> {{order.endDate.toString().split('T')[0]}}</p>
+  <p><b>Name:</b> {{order.bike.name}}</p>
+  <p><b>price:</b> ${{order.bike.price}}/day</p>
+  <p><b>bikeId:</b> {{order.bike.id}}</p>
+  <p><b>Customer:</b> {{order.customerEmail}}</p>
+</mat-card>
