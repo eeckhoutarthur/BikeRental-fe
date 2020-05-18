@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 
 const appRoutes : Routes = [
   {path: 'bike', loadChildren: () => import('./bike/bike.module').then(obj => obj.BikeModule)},
+  {path: 'order', loadChildren: () => import('./order/order.module').then(obj => obj.OrderModule)},
   {path: '', redirectTo:'bike/list', pathMatch:'full'},
   {path: '**', component: PageNotFoundComponentComponent}
 ];

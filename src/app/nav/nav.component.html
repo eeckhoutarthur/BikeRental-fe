@@ -4,6 +4,7 @@
       <span class="menu-spacer"></span>
       <div *ngIf="currentRole$.getValue() == 'admin'">
         <a mat-button [routerLink]="['bike/add']"> Voeg een fiets toe </a>
+        <a mat-button [routerLink]="['order/list']">Toon de orders</a>
         <!-- Nog een link om de orders te tonen -->
         <!-- Nog een link om een bike te verwijderen -->
       </div>
