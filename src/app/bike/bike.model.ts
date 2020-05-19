@@ -28,6 +28,7 @@ export class Bike /*implements BikeJson*/{
     }
     toJSON(): BikeJson{
         return <BikeJson>{
+            id: this._id,
             name: this.name,
             price: this.price,
             discBrakes: this.discBrakes,

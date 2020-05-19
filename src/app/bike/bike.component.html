@@ -6,7 +6,5 @@
     <p>{{bike.bikeGroupset}}</p>
     <p>{{bike.discBrakes ? 'Discbrakes' : 'Rimbrakes'}}</p>
     <p>${{bike.price}}/day</p>
-    <button class="btn btn-primary">Order</button>
+    <button class="btn btn-primary" (click)="newBikeOrder(bike)">Order</button>
 </mat-card>
-
-
