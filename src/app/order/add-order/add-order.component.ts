@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl, ValidationErrors, AbstractControl, ValidatorFn } from '@angular/forms';
 import { OrderDataService } from '../order-data.service';
 import { Bike } from 'src/app/bike/bike.model';
 import { Router, RouterState, ActivatedRoute } from '@angular/router';
@@ -15,6 +15,7 @@ import { AuthenticationService } from 'src/app/user/Authentication.service';
 })
 export class AddOrderComponent implements OnInit {
   public minDate = new Date();
+  public endDateMin = this.minDate;
   public orderFormGroup : FormGroup;
   public bikeOrder: Bike;
   private _currentUser$ = this._authenticationService.user$;
@@ -29,6 +30,10 @@ export class AddOrderComponent implements OnInit {
       }
     );
     this._orderDataService.currentBikeOrder.subscribe(value => this.bikeOrder = value);
+  }
+
+  getErrorMessage(errors: any){
+    if(errors.required) return "Is required";
   }
 
   onSubmit(){ 

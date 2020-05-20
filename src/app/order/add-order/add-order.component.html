@@ -6,13 +6,15 @@
           <input matInput [matDatepicker]="dp" formControlName="startDate" [min]= "minDate">
           <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
           <mat-datepicker #dp></mat-datepicker>
+          <mat-error *ngIf="orderFormGroup.get('startDate').errors && orderFormGroup.get('startDate').touched">{{ getErrorMessage(orderFormGroup.get('startDate').errors) }}</mat-error>
         </mat-form-field>
 
         <mat-label>End date</mat-label>
         <mat-form-field>
-          <input matInput [matDatepicker]="dp2" formControlName="endDate" [min]= "minDate">
+          <input matInput [matDatepicker]="dp2" formControlName="endDate" [min]= "endDateMin">
           <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
           <mat-datepicker #dp2></mat-datepicker>
+          <mat-error *ngIf="orderFormGroup.get('endDate').errors && orderFormGroup.get('endDate').touched">{{ getErrorMessage(orderFormGroup.get('endDate').errors) }}</mat-error>
         </mat-form-field>
         <button class="btn btn-primary" style="margin-left: 2rem;" type='submit'>Place Order</button>
     </form>
