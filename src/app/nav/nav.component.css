@@ -31,6 +31,12 @@ mat-toolbar{
   }
 
   @media screen and (max-width: 500px) {
+    mat-toolbar{
+      background-image: url('/assets/images/smallBackground.jpg');
+      background-repeat:no-repeat;
+      background-size:contain;
+      background-position:center;
+    }
     .header a{
       font-size: 10px;
       float: none;

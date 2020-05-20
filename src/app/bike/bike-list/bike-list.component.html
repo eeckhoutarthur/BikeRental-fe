@@ -10,12 +10,12 @@
 </div>
 
 <div class="container">
-  <div class="row row-cols-3" *ngIf="(bikes$ | async) as bikes;">
+  <div class="row row-cols-1" *ngIf="(bikes$ | async) as bikes;">
     <div
       class="col"
       *ngFor="let bikeData of (bikes | bikeFilter: bikeType )"
     >
-      <app-bike [bike]="bikeData"></app-bike>
+      <app-bike [bike]="bikeData" [imageNameForBike]="bikeData.name.split(' ').join('_')"></app-bike>
     </div>
   </div>
 </div>

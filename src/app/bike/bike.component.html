@@ -1,5 +1,7 @@
 
 <mat-card class="m-4 text-center">
+    <!-- Wanneer er geen afbeelding kan worden gevonden voor een fiets zal een standaard afbeelding weergegeven worden -->
+    <img mat-card-image src='/assets/images/{{imageNameForBike}}.jpg' onerror="this.src='/assets/images/NoImage.jpg'">
     <p>{{bike.name}}</p>
     <p>{{bike.bikeBrand}}</p>
     <p>{{bike.bikeType}}</p>

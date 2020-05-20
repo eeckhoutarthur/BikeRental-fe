@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class BikeComponent{
   @Input() public bike : Bike;
+  @Input() public imageNameForBike:string;
   
   constructor(private data: OrderDataService, private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   newBikeOrder(bikeOrder: Bike){
     this.data.changeBikeForOrder(bikeOrder);
