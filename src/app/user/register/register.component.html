@@ -11,8 +11,8 @@
           <mat-card-title>Register</mat-card-title>
         </mat-card-header>
         <mat-card-content fxLayout="column">
-          <span fxLayout="row" fxLayoutGap="2%">
-            <mat-form-field>
+          <span>
+            <mat-form-field class="mr-3">
               <input
                 matInput
                 placeholder="first name"
@@ -20,7 +20,7 @@
                 formControlName="firstname"/>
                 <mat-error *ngIf="registerFormGroup.get('firstname').errors && registerFormGroup.get('firstname').touched">{{ getErrorMessage(registerFormGroup.get('firstname').errors) }}</mat-error>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="mr-3">
                 <input
                 matInput
                 placeholder="last name"

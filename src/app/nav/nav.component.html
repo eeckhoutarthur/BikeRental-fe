@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <mat-toolbar-row> 
+  <mat-toolbar-row class="header"> 
       <img src="/assets/images/logo.png" [routerLink]="['bike/list']">
       <span class="menu-spacer"></span>
       <div *ngIf="currentRole$.getValue() == 'admin'">
@@ -9,14 +9,14 @@
         <!-- Nog een link om een bike te verwijderen -->
       </div>
       <span fxFlex></span>
-      <span *ngIf="currentUser$ | async as user; else loginTemplate"> 
+      <span *ngIf="currentUser$ | async as user; else loginTemplate" class="LoginLogoutButton"> 
         {{user}}
         <button  class="btn btn-primary" (click)="logout()" style="float: right; margin-left: 5rem;">
           logout
         </button>
       </span>
       <ng-template #loginTemplate>
-        <span>
+        <span class="LoginLogoutButton">
           <button  class="btn btn-primary"  (click)="login()">
             login
           </button>
