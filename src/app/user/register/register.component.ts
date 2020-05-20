@@ -29,6 +29,12 @@ function serverSideValidateUsername(
   };
 }
 
+function passwordValidator(control):ValidationErrors{
+  var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+
+  return control.value.match(regex) ? null : {wrongformat: true};
+}
+
 function comparePasswords(control: AbstractControl): ValidationErrors {
   const password = control.get("password");
   const confirmPassword = control.get("confirmPassword");
@@ -47,7 +53,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private autSetvice: AuthenticationService,
     private router: Router,
-    private builder: FormBuilder
+    private builder: FormBuilder,
   ) {}
 
   ngOnInit(): void {
@@ -64,10 +70,11 @@ export class RegisterComponent implements OnInit {
           password: ["", [
             Validators.required,
             Validators.minLength(8),
+            passwordValidator
           ]],
           confirmPassword: ["", Validators.required],
         },
-        { validator: comparePasswords }
+        { validator: comparePasswords},
       ),
     });
   }
@@ -82,6 +89,7 @@ export class RegisterComponent implements OnInit {
     else if(errors.userAlreadyExists) return 'this email already exists';
     else if(errors.passwordsDiffer) return 'The passwords are not the same';
     else if(errors.email) return 'this is not a valid email';
+    else if(errors.wrongformat) return 'Your password needs to contain an uppercase letter,lower case letter, a number and a special character'
   }
 
   onSubmit(){

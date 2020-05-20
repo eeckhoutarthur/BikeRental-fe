@@ -66,7 +66,7 @@
             </span>
             <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
                 <a [routerLink]="['/login']">login</a>
-                <button mat-raised-button type="submit" color="primary" data-cy="register-button">Register</button>
+                <button mat-raised-button type="submit" color="primary" [disabled]="!registerFormGroup.valid">Register</button>
             </mat-card-actions>
         </span>
         </mat-card-content>
