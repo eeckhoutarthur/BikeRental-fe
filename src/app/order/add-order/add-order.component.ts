@@ -15,9 +15,10 @@ import { AuthenticationService } from 'src/app/user/Authentication.service';
 })
 export class AddOrderComponent implements OnInit {
   public minDate = new Date();
-  public endDateMin = this.minDate;
+  public endDateMin = new Date();
   public orderFormGroup : FormGroup;
   public bikeOrder: Bike;
+  public succesMessage= '';
   private _currentUser$ = this._authenticationService.user$;
 
   constructor(private _orderDataService: OrderDataService,private  _authenticationService: AuthenticationService) { }
@@ -36,8 +37,15 @@ export class AddOrderComponent implements OnInit {
     if(errors.required) return "Is required";
   }
 
+  setMessage(){
+    this.succesMessage = '';
+  }
+
   onSubmit(){ 
     this._orderDataService.addOrder(new Order(this.orderFormGroup.get("startDate").value, this.orderFormGroup.get("endDate").value,this.bikeOrder, this._currentUser$.value));
+    this.succesMessage = 'We have received your order!';
+    this.orderFormGroup.reset();
+    this.orderFormGroup.markAsUntouched();
   }
 
 }
