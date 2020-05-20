@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  clearErrorM(){
+    this.erroMessage = '';
+  }
+
   onSubmit(){
     this.autSetvice.login(this.loginFormGroup.value.username,this.loginFormGroup.value.password).subscribe(
       (value) =>{

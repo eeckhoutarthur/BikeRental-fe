@@ -33,7 +33,6 @@ export class AddOrderComponent implements OnInit {
 
   onSubmit(){ 
     this._orderDataService.addOrder(new Order(this.orderFormGroup.get("startDate").value, this.orderFormGroup.get("endDate").value,this.bikeOrder, this._currentUser$.value));
-    // console.log(this.bikeOrder.id);
   }
 
 }

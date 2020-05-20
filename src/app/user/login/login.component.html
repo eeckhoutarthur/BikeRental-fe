@@ -1,3 +1,9 @@
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="erroMessage">
+  The email and/of the password is incorrect!
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="clearErrorM()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <div fxLayout="row" fxLayoutAlign="center center " class="login-main">
   <mat-card>
     <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
@@ -11,7 +17,6 @@
               matInput
               placeholder="email"
               aria-label="email"
-              data-cy="login-email"
               formControlName="username"/>
           </mat-form-field>
           <mat-form-field>
@@ -20,17 +25,13 @@
               type="password"
               placeholder="password"
               aria-label="password"
-              data-cy="login-passwoord"
               formControlName="password">
           </mat-form-field>
           <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
               <a [routerLink]="['/register']">register</a>
-              <button mat-raised-button type="submit" color="primary" data-cy="login-button">Login</button>
+              <button mat-raised-button type="submit" color="primary">Login</button>
           </mat-card-actions>
       </mat-card-content>
     </form>
-    <mat-card class="error" *ngIf="erroMessage" data-cy="appError">
-        There went something wrong while the list of bikes was loading: {{erroMessage}}
-    </mat-card>
   </mat-card>
 </div>
