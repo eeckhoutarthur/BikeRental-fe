@@ -11,13 +11,14 @@
         <mat-card-title>Login</mat-card-title>
       </mat-card-header>
       <mat-card-content fxLayout="column">
-        <!-- <span fxLayout="row" fxLayoutGap="2%"></span> -->
           <mat-form-field>
             <input
               matInput
+              type="email"
               placeholder="email"
               aria-label="email"
               formControlName="username"/>
+              <mat-error *ngIf="loginFormGroup.get('username').errors && loginFormGroup.get('username').touched">{{getErrorMessage(loginFormGroup.get('username').errors) }}</mat-error>
           </mat-form-field>
           <mat-form-field>
               <input
@@ -26,6 +27,7 @@
               placeholder="password"
               aria-label="password"
               formControlName="password">
+              <mat-error *ngIf="loginFormGroup.get('password').errors && loginFormGroup.get('password').touched">{{ getErrorMessage(loginFormGroup.get('password').errors) }}</mat-error>
           </mat-form-field>
           <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
               <a [routerLink]="['/register']">register</a>

@@ -16,13 +16,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginFormGroup= new FormGroup({
-      username: new FormControl('', [Validators.required]),
+      username: new FormControl('', [Validators.required,Validators.email]),
       password: new FormControl('', [Validators.required])
     })
   }
 
   clearErrorM(){
     this.erroMessage = '';
+  }
+
+  getErrorMessage(errors: any){
+    if(errors.required) return "is required";
+    else if(errors.email) return 'this is not a valid email';
   }
 
   onSubmit(){

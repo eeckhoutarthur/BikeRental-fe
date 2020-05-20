@@ -72,11 +72,16 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  clearErrorM(){
+    this.erroMessage = '';
+  }
+
   getErrorMessage(errors: any){
     if(errors.required) return "is required";
     else if (errors.minLength) return `You need at least ${errors.minLength.requiredLength} `;
     else if(errors.userAlreadyExists) return 'this email already exists';
     else if(errors.passwordsDiffer) return 'The passwords are not the same';
+    else if(errors.email) return 'this is not a valid email';
   }
 
   onSubmit(){
