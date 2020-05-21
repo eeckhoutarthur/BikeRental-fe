@@ -7,16 +7,16 @@
 <div class="main-div">
   <mat-card-content>
     <form [formGroup]="orderFormGroup">
-        <mat-label>Start date</mat-label>
         <mat-form-field style="margin-right: 2rem;">
+          <mat-label>Start date</mat-label>
           <input matInput [matDatepicker]="dp" formControlName="startDate" [min]= "minDate">
           <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
           <mat-datepicker #dp></mat-datepicker>
           <mat-error *ngIf="orderFormGroup.get('startDate').errors && orderFormGroup.get('startDate').touched">{{ getErrorMessage(orderFormGroup.get('startDate').errors) }}</mat-error>
         </mat-form-field>
-
-        <mat-label>End date</mat-label>
+        
         <mat-form-field>
+          <mat-label>End date</mat-label>
           <input matInput [matDatepicker]="dp2" formControlName="endDate" [min]= 'this.orderFormGroup.get("startDate").value'>
           <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
           <mat-datepicker #dp2></mat-datepicker>
