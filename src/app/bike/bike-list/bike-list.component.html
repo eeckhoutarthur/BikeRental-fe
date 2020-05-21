@@ -2,7 +2,7 @@
 <div class="d-flex justify-content-center">
   <div style="align-items: center; margin: 2em;">
     <button mat-flat-button color="filterknop"  (click)="applyFilter(0)">All bikes</button>
-    <button  mat-flat-button color="filterknop" (click)="applyFilter(1)">Road Bike</button>
+    <button  mat-flat-button color="filterknop" (click)="applyFilter(1)" data-cy="allRoadBikesFilter">Road Bike</button>
     <button  mat-flat-button color="filterknop" (click)="applyFilter(2)">Mountain Bike</button>
     <button  mat-flat-button color="filterknop" (click)="applyFilter(3)">E-Bike</button>
     <button  mat-flat-button color="filterknop" (click)="applyFilter(4)">Urban Bike</button>
@@ -15,7 +15,7 @@
       class="col"
       *ngFor="let bikeData of (bikes | bikeFilter: bikeType )"
     >
-      <app-bike [bike]="bikeData" [imageNameForBike]="bikeData.name.split(' ').join('_')"></app-bike>
+      <app-bike [bike]="bikeData" [imageNameForBike]="bikeData.name.split(' ').join('_')" data-cy="bike"></app-bike>
     </div>
   </div>
 </div>

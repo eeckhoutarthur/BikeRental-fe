@@ -80,7 +80,7 @@
           required
         />
       </mat-form-field>
-      <button  mat-raised-button type='button' [disabled]="!bikeFormGroup.valid" (click)= "onSubmit()">  
+      <button  mat-raised-button type='button' [disabled]="!bikeFormGroup.valid" (click)= "onSubmit()" data-cy="buttonAddBike">  
         Add bike
       </button>
     </form>

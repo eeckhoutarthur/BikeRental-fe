@@ -2,7 +2,7 @@
   <mat-toolbar-row class="header"> 
       <img src="/assets/images/logo.png" [routerLink]="['bike/list']">
       <span class="menu-spacer"></span>
-      <div *ngIf="currentRole$.getValue() == 'admin'">
+      <div *ngIf="currentRole$.getValue() == 'admin'" data-cy="routerLinks">
         <a mat-button [routerLink]="['bike/add']"> Voeg een fiets toe </a>
         <a mat-button [routerLink]="['order/list']">Toon de orders</a>
         <!-- Nog een link om de orders te tonen -->
@@ -17,7 +17,7 @@
       </span>
       <ng-template #loginTemplate>
         <span class="LoginLogoutButton">
-          <button  class="btn btn-primary"  (click)="login()">
+          <button  class="btn btn-primary"  (click)="login()" data-cy="loginB">
             login
           </button>
         </span>

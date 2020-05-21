@@ -17,7 +17,7 @@
               type="email"
               placeholder="email"
               aria-label="email"
-              formControlName="username"/>
+              formControlName="username" data-cy="name"/>
               <mat-error *ngIf="loginFormGroup.get('username').errors && loginFormGroup.get('username').touched">{{getErrorMessage(loginFormGroup.get('username').errors) }}</mat-error>
           </mat-form-field>
           <mat-form-field>
@@ -26,12 +26,12 @@
               type="password"
               placeholder="password"
               aria-label="password"
-              formControlName="password">
+              formControlName="password" data-cy="password">
               <mat-error *ngIf="loginFormGroup.get('password').errors && loginFormGroup.get('password').touched">{{ getErrorMessage(loginFormGroup.get('password').errors) }}</mat-error>
           </mat-form-field>
           <mat-card-actions fxLayout="row" fxLayoutAlign="space-between center">
               <a [routerLink]="['/register']">register</a>
-              <button mat-raised-button type="submit" color="primary">Login</button>
+              <button mat-raised-button type="submit" color="primary" data-cy="loginU">Login</button>
           </mat-card-actions>
       </mat-card-content>
     </form>
