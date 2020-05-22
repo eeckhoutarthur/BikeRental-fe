@@ -8,6 +8,10 @@ In het terminal venster typt u het commando npm start. De applicatie zou moeten 
 De backend API dient opgestart te zijn. Wanneer dit niet zo is zullen de bikes niet verschijnen,
 je zal geen orders kunnen plaatsen of opvragen en het inloggen of registreren zal ook niet mogelijk zijn.
 
+### Inloggegevens
+  - email: arthur.eeckhout@student.hogent.be passwoord: W@woord5 --> admin
+  - email: dylan.mooij@student.hogent.be passwoord: W@woord6 --> gebruiker
+
 ## Testen van de applicatie
 Om de applicatie te testen maak ik gebruik van Cypress.
 De testen kunt u terug vinden in ProjectBikeRentalFE/cypress/integration.
