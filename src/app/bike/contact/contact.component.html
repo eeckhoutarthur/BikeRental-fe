@@ -1,0 +1,36 @@
+
+  <agm-map [latitude]="latitude" [longitude]= "longitude" [streetViewControl]="false">
+    <agm-info-window [disableAutoPan]="true">Test deze functie</agm-info-window>
+    <agm-marker [latitude]="latitude" [longitude]= "longitude"  (mouseOver)='openWindow(true)'>
+      <agm-info-window [isOpen]="isInfoWindowSOpen">
+        This is the location of the bike rental store <br>
+        Avenida Bartolomé Riutort, 59 07610 Can Pastilla - Mallorca
+      </agm-info-window>
+    </agm-marker>
+    <agm-marker [latitude] = "latCurrent" [longitude]="lngCurrent"  (mouseOver)='openWindow(false)'>
+      <agm-info-window [disableAutoPan]="true" [isOpen]="isInfoWindowLOpen">
+        This is your location
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+
+
+  <mat-card class="m-5 text-center">
+    <h2>Mallorca</h2>
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col d-flex justify-content-end"><i class="fas fa-calendar-alt"></i></div>
+        <div class="col d-flex justify-content-start">We are open 24/7</div>
+        <div class="w-100"></div>
+        <div class="col d-flex justify-content-end"><i class="fas fa-phone-volume"></i></div>
+        <div class="col d-flex justify-content-start">(+34) 123 346 789</div>
+        <div class="w-100"></div>
+        <div class="col d-flex justify-content-end"><i class="far fa-compass"></i></div>
+        <div class="col d-flex justify-content-start">Avenida Bartolomé Riutort, 59 07610 Can Pastilla - Mallorca</div>
+      </div>
+    </div>
+  </mat-card>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
