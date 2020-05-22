@@ -11,6 +11,8 @@ import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserModule } from './user/user.module';
 import { httpInterceptorProviders } from './interceptor/providers';
+import {AgmCoreModule} from '@agm/core';
+
 
 @NgModule({
    declarations: [
@@ -21,10 +23,10 @@ import { httpInterceptorProviders } from './interceptor/providers';
    imports: [
       BrowserModule,
       HttpClientModule,
-      AppRoutingModule,
       BrowserAnimationsModule,
       MaterialModule,
       ReactiveFormsModule,
+      AgmCoreModule,
       UserModule,
       AppRoutingModule
    ],

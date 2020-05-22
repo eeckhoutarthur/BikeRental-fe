@@ -9,11 +9,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {AddBikeComponent} from './add-bike/add-bike.component';
 import {RouterModule, Routes} from '@angular/router';
 import { AuthGuard } from '../user/auth.guard';
-
+import {AgmCoreModule} from '@agm/core';
+import { ContactComponent } from './contact/contact.component';
+import {AgmDirectionModule} from 'agm-direction';
 
    const bikeRoutes : Routes = [
       {path: 'list', component: BikeListComponent},
-      {path: 'add', canActivate : [AuthGuard],component: AddBikeComponent}
+      {path: 'add', canActivate : [AuthGuard],component: AddBikeComponent},
+      {path: 'contact', component: ContactComponent}
    ];
 
 
@@ -23,6 +26,11 @@ import { AuthGuard } from '../user/auth.guard';
       MaterialModule,
       HttpClientModule,
       ReactiveFormsModule,
+      AgmCoreModule.forRoot({
+         apiKey: "AIzaSyDM9IuMt3cJARapLW87pe7-Zj9_zGW9gww",
+         libraries: ['geometry']
+      }),
+      AgmDirectionModule,
       RouterModule.forChild(bikeRoutes),
    ],
    declarations: [
@@ -30,9 +38,10 @@ import { AuthGuard } from '../user/auth.guard';
       BikeListComponent,
       BikeFilterPipe,
       AddBikeComponent,
+      ContactComponent
    ],
    exports: [
-      BikeListComponent,AddBikeComponent
+      BikeListComponent,AddBikeComponent,AgmCoreModule
    ]
 })
 export class BikeModule { }
