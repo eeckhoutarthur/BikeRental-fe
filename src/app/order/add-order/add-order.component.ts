@@ -2,9 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, Validators, FormControl, ValidationErrors, AbstractControl, ValidatorFn } from '@angular/forms';
 import { OrderDataService } from '../order-data.service';
 import { Bike } from 'src/app/bike/bike.model';
-import { Router, RouterState, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Order } from '../order.model';
 import { AuthenticationService } from 'src/app/user/Authentication.service';
 

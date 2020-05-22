@@ -10,7 +10,6 @@ context('Testing buttons, filter and nav links', () => {
 
         cy.url().should('include', 'http://localhost:4200/bike/add')
 
-        // cy.visit('http://localhost:4200/bike/add');
         cy.get('[data-cy=buttonAddBike]').should('be.disabled');
     })
     it('nav links should not be visible for a customer',() =>{

@@ -1,5 +1,3 @@
-// import {BikeJson} from './bikeJson'
-
 interface BikeJson{
     id: number
     name: string
@@ -10,7 +8,7 @@ interface BikeJson{
     price: number
 }
 
-export class Bike /*implements BikeJson*/{
+export class Bike{
     private _id: number;
     constructor(
         private _name: string,

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialComponent } from './material.component';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -22,8 +21,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   imports: [
     CommonModule,
-    // BrowserAnimationsModule,
-    FlexLayoutModule,
+     FlexLayoutModule,
     MatListModule,
     MatCardModule,
     MatIconModule,
@@ -36,7 +34,6 @@ import {MatNativeDateModule} from '@angular/material/core';
   ],
   declarations: [MaterialComponent],
   exports: [
-    // BrowserAnimationsModule,
     FlexLayoutModule,
     MatListModule,
     MatCardModule,

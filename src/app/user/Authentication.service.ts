@@ -105,9 +105,6 @@ export class AuthenticationService {
         })
       );
   }
-  // _tokenKey(_tokenKey: any, token: any) {
-  //   throw new Error("Method not implemented.");
-  // }
 
   logout() {
     if(this._user$.getValue()){
